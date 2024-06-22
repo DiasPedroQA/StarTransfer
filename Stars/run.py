@@ -1,6 +1,8 @@
 from api_rest import create_app
+from loguru import logger
 
-api_rest = create_app()
+app = create_app()
 
 if __name__ == '__main__':
-    api_rest.run(debug=True)
+    logger.info("Iniciando a aplicação...")
+    app.run(debug=True)

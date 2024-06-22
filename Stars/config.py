@@ -1,7 +1,7 @@
 import os
 
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Config:
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'banco/api-rest.db')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+def is_valid_path(path):
+    if os.path.exists(path):
+        return f"The path '{path}' is valid and exists."
+    else:
+        return f"The path '{path}' is not a valid path or does not exist."
