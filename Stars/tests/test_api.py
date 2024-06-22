@@ -1,22 +1,22 @@
 import re
 import requests
 import unittest
-from app import create_app, db
-from app.controllers import get_stars, add_star, update_star, delete_star
-from app.models import Star
+from api_rest import create_app, db
+from api_rest.controllers import get_stars, add_star, update_star, delete_star
+from api_rest.models import Star
 
 class StarApiTestCase(unittest.TestCase):
     def setUp(self):
-        self.app = create_app()
-        self.app.config['TESTING'] = True
-        self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-        self.client = self.app.test_client()
+        self.api_rest = create_app()
+        self.api_rest.config['TESTING'] = True
+        self.api_rest.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+        self.client = self.api_rest.test_client()
         
-        with self.app.app_context():
+        with self.api_rest.app_context():
             db.create_all()
 
     def tearDown(self):
-        with self.app.app_context():
+        with self.api_rest.app_context():
             db.session.remove()
             db.drop_all()
 

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.controllers import get_all_stars, get_star_by_id, add_star, update_star, delete_star
+from api_rest.controllers import get_all_stars, get_star_by_id, add_star, update_star, delete_star
 
 star_bp = Blueprint('stars', __name__, url_prefix='/stars')
 
