@@ -1,5 +1,6 @@
 import re
 
+
 def validar_caminho(path: str) -> bool:
     padrao_arquivo = re.compile(r'^([\w\-. ]+/)*[\w\-. ]+\.[\w]+$')
     padrao_pasta = re.compile(r'^([\w\-. ]+/)*[\w\-. ]+/?$')

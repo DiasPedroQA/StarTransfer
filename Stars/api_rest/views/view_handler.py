@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from api_rest.controllers.controller_handler import validar_caminho
 
+
 app = Flask(__name__)
+
 
 @app.route('/validar_caminho', methods=['POST'])
 def validar_caminho_api():
@@ -12,6 +14,7 @@ def validar_caminho_api():
         return jsonify({'path': path, 'is_valid': is_valid})
     except Exception as e:
         return jsonify({'error': str(e)}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)

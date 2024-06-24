@@ -3,7 +3,6 @@ from api_rest.controllers.controller_handler import validar_caminho
 
 
 class TestControllerHandler(unittest.TestCase):
-    
     def test_validar_caminho(self):
         casos_de_teste = [
             ("arquivo.txt", True),
@@ -14,14 +13,17 @@ class TestControllerHandler(unittest.TestCase):
             ("/caminho/invalido/", False),
             ("pasta/com/char_invalido*", False),
         ]
-        
+
         for caminho, esperado in casos_de_teste:
             with self.subTest(caminho=caminho, esperado=esperado):
                 try:
                     self.assertEqual(validar_caminho(caminho), esperado)
                 except AssertionError as e:
-                    print(f"Erro ao validar caminho: {caminho} - Esperado: {esperado}, Obtido: {validar_caminho(caminho)}")
+                    print(f"Erro ao validar caminho: {caminho}")
+                    print(f"Esperado: {esperado}")
+                    print(f"Obtido: {validar_caminho(caminho)}")
                     raise e
+
 
 if __name__ == '__main__':
     unittest.main()
