@@ -10,18 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        python-version: [3.10, 3.11]
-
     steps:
     - name: Checkout do código
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4  # Atualizado para usar Node.js 20
 
-    - name: Configurar Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+    - name: Configurar Python 3.11
+      uses: actions/setup-python@v4  # Atualizado para usar Node.js 20
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.11
 
     - name: Verificar se requirements.txt existe
       run: ls -la Stars
