@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from api_rest.controllers.controller_handler import validar_caminho
+from Stars.api_rest.controllers.controller_handler import validar_caminho
 
 
 app = Flask(__name__)

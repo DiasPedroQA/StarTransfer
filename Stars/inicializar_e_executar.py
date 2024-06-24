@@ -6,7 +6,7 @@ import unittest
 import time
 from threading import Timer
 from multiprocessing import Process
-from api_rest.views.view_handler import app
+from Stars.api_rest.views.view_handler import app
 
 # Adiciona o diretório do projeto ao sys.path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
