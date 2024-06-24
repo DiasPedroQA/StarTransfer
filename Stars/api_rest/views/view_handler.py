@@ -1,12 +1,10 @@
-# /home/diaspedro/Desktop/Projetos/StarTransfer/Stars/api_rest/views/view_handler.py
-
 from flask import Flask, request, jsonify
 from api_rest.controllers.controller_handler import validar_caminho
 
 app = Flask(__name__)
 
-@app.route('/validate_path', methods=['POST'])
-def validate_path():
+@app.route('/validar_caminho', methods=['POST'])
+def validar_caminho_api():
     try:
         data = request.get_json()
         path = data.get('path', '')

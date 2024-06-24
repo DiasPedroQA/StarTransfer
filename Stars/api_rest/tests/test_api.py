@@ -1,9 +1,8 @@
-# /home/diaspedro/Desktop/Projetos/StarTransfer/Stars/api_rest/tests/test_api.py
-
 import unittest
 import json
 from api_rest.views.view_handler import app
 from api_rest.controllers.controller_handler import validar_caminho
+
 
 class TestAPI(unittest.TestCase):
     

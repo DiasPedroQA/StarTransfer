@@ -1,7 +1,6 @@
-# /home/diaspedro/Desktop/Projetos/StarTransfer/Stars/api_rest/tests/test_controller_handler.py
-
 import unittest
 from api_rest.controllers.controller_handler import validar_caminho
+
 
 class TestControllerHandler(unittest.TestCase):
     
@@ -20,7 +19,6 @@ class TestControllerHandler(unittest.TestCase):
             with self.subTest(caminho=caminho, esperado=esperado):
                 try:
                     self.assertEqual(validar_caminho(caminho), esperado)
-                    print(caminho, esperado)
                 except AssertionError as e:
                     print(f"Erro ao validar caminho: {caminho} - Esperado: {esperado}, Obtido: {validar_caminho(caminho)}")
                     raise e

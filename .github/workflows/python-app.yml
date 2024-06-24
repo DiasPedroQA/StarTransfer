@@ -12,15 +12,12 @@ jobs:
 
     steps:
     - name: Checkout do código
-      uses: actions/checkout@v4  # Atualizado para usar Node.js 20
+      uses: actions/checkout@v4
 
     - name: Configurar Python 3.11
-      uses: actions/setup-python@v4  # Atualizado para usar Node.js 20
+      uses: actions/setup-python@v4
       with:
         python-version: 3.11
-
-    - name: Verificar se requirements.txt existe
-      run: ls -la Stars
 
     - name: Instalar dependências
       run: |
@@ -29,7 +26,7 @@ jobs:
 
     - name: Verificar código com flake8
       run: |
-        flake8 Stars/api_rest tests
+        flake8 Stars/api_rest Stars/api_rest/tests
 
     - name: Executar testes com unittest e verificar cobertura de código
       run: |

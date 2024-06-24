@@ -1,5 +1,3 @@
-# /home/diaspedro/Desktop/Projetos/StarTransfer/Stars/api_rest/controllers/controller_handler.py
-
 import re
 
 def validar_caminho(path: str) -> bool:
