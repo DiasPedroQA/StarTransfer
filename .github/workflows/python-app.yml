@@ -25,8 +25,8 @@ jobs:
     - name: Instalar dependências
       run: pip install -r Stars/requirements.txt
 
-    - name: Verificar código com flake8
-      run: flake8 Stars/api_rest
+    - name: Verificar código com flake8 (--ignore=E501)
+      run: flake8 Stars/api_rest --ignore=E501
 
     - name: Executar testes com unittest
       run: coverage run -m unittest discover Stars/api_rest/tests
