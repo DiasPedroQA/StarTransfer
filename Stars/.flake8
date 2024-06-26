@@ -32,7 +32,6 @@ extend-ignore =
 # Imports
     E401,  # Cada importação deve estar em uma linha separada.
     F401,  # Remova importações não utilizadas.
-    E402,  # Importações devem estar no topo do arquivo.
 
 # Docstrings
     D100,  # Adicione uma docstring para todas as classes públicas.
@@ -46,4 +45,4 @@ extend-ignore =
     W291,  # Remova espaços em branco no final de linhas.
     W292   # Certifique-se de que o arquivo termina com uma linha em branco.
 
-ignore = E501
+ignore = E501, E402
