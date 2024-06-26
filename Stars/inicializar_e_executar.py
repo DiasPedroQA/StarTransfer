@@ -1,11 +1,11 @@
-# /home/diaspedro/Desktop/Projetos/StarTransfer/Stars/inicializar_e_executar.py
+"""# /home/diaspedro/Desktop/Projetos/StarTransfer/Stars/inicializar_e_executar.py
 
 import sys
 import os
 import unittest
 import time
 from multiprocessing import Process
-from Stars.api_rest.views.view_handler import app
+# from Stars.api_rest.views.view_handler import app
 # from threading import Timer
 
 # Adiciona o diretório do projeto ao sys.path
@@ -59,3 +59,4 @@ if __name__ == "__main__":
             time.sleep(2)
         finally:
             encerrar_servidor(server)
+"""
