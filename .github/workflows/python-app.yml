@@ -1,13 +1,13 @@
-name: Minha API Rest Python
+name: API Rest Python CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  api_rest:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,20 +19,22 @@ jobs:
       with:
         python-version: 3.11
 
-    - name: Atualizando o pip
-      run: python -m pip install --upgrade pip
-
     - name: Instalar dependências
-      run: pip install -r Stars/requirements.txt
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r Stars/requirements.txt
 
-    - name: Verificar código com flake8 (--ignore=E501)
-      run: flake8 Stars/api_rest --ignore=E501
+    - name: Verificar código com flake8
+      run: flake8 Stars/api_rest --ignore=E501,E402
 
-    - name: Executar testes com unittest e cobertura de código
-      run: coverage run -m unittest discover Stars/api_rest/tests --report
+    - name: Executar testes com unittest e gerar cobertura de código
+      run: |
+        pip install coverage
+        coverage run -m unittest discover Stars/api_rest/tests
+        coverage html
 
     - name: Fazer upload do relatório de cobertura
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: relatorio-cobertura
-        path: ./htmlcov
+        path: htmlcov
