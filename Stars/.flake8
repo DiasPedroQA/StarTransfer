@@ -45,4 +45,6 @@ extend-ignore =
     W291,  # Remova espaços em branco no final de linhas.
     W292   # Certifique-se de que o arquivo termina com uma linha em branco.
 
-ignore = E501, E402
+ignore = 
+    E501, 
+    E402
