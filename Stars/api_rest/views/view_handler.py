@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+"""from flask import Flask, request, jsonify
 from Stars.api_rest.controllers.pasta import Pasta
 
 
@@ -19,3 +19,4 @@ def validar_caminho_api():
 
 if __name__ == '__main__':
     app.run(debug=True)
+"""

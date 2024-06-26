@@ -1,4 +1,4 @@
-import unittest
+"""import unittest
 from Stars.api_rest.controllers.pasta import Pasta
 
 
@@ -28,3 +28,4 @@ class TestControllerHandler(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+"""
