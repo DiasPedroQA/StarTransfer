@@ -1,5 +1,5 @@
 import unittest
-from Stars.api_rest.controllers.handler import validar_caminho
+from Stars.api_rest.controllers.pasta import Pasta
 
 
 class TestControllerHandler(unittest.TestCase):
@@ -17,11 +17,12 @@ class TestControllerHandler(unittest.TestCase):
         for caminho, esperado in casos_de_teste:
             with self.subTest(caminho=caminho, esperado=esperado):
                 try:
-                    self.assertEqual(validar_caminho(caminho), esperado)
+                    pasta = Pasta(None, None, None, [], [])
+                    self.assertEqual(pasta.validar_caminho(caminho), esperado)
                 except AssertionError as e:
                     print(f"Erro ao validar caminho: {caminho}")
                     print(f"Esperado: {esperado}")
-                    print(f"Obtido: {validar_caminho(caminho)}")
+                    print(f"Obtido: {pasta.validar_caminho(caminho)}")
                     raise e
 
 
