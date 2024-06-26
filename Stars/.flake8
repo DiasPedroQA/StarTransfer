@@ -2,3 +2,47 @@
 max-line-length = 127
 max-complexity = 10
 exclude = .git,__pycache__,env
+
+# Linhas em Branco
+extend-ignore = 
+    E301,  # Adicione uma linha em branco entre funções e classes.
+    E302,  # Adicione duas linhas em branco entre definições de classe ou de função de nível superior.
+    E303,  # Não use mais de 40 linhas em branco consecutivas (Personalizado para mais de 40).
+
+# Indentação
+    E111,  # A indentação deve ser um múltiplo de 4.
+    E114,  # A indentação deve ser um múltiplo de 4 para comentários.
+    E121,  # Continuation line under-indented for hanging indent.
+
+# Comprimento da Linha
+    E501,  # As linhas não devem ter mais que 100 caracteres (Personalizado para max-line-length).
+    E502,  # A continuação da linha deve ser feita sem uma barra invertida (`\`).
+
+# Espaçamento
+    E201,  # Deve haver 1 espaço após `(`, `[` ou `{`.
+    E202,  # Deve haver 1 espaço antes de `)`, `]` ou `}`.
+    E203,  # Não deve haver espaços antes de `:`.
+    E211,  # Não deve haver espaços antes de parênteses de índice.
+    E221,  # Não deve haver múltiplos espaços ao redor de um operador.
+
+# Nomes de Variáveis e Funções
+    N802,  # Funções, variáveis e métodos devem ser nomeados em `CamelCase`.
+    N803,  # Classes devem ser nomeadas em `CamelCase`.
+    N806,  # Constantes devem ser nomeadas em letras maiúsculas com underscores.
+
+# Imports
+    E401,  # Cada importação deve estar em uma linha separada.
+    F401,  # Remova importações não utilizadas.
+    E402,  # Importações devem estar no topo do arquivo.
+
+# Docstrings
+    D100,  # Adicione uma docstring para todas as classes públicas.
+    D101,  # Adicione uma docstring para todas as funções públicas.
+    D102,  # Adicione uma docstring para todos os métodos públicos.
+
+# Outros Erros Comuns
+    F841,  # Variável local atribuída, mas não utilizada.
+    E731,  # Use lambdas para atribuir uma expressão simples.
+    W191,  # Não use indentação com tabs.
+    W291,  # Remova espaços em branco no final de linhas.
+    W292   # Certifique-se de que o arquivo termina com uma linha em branco.

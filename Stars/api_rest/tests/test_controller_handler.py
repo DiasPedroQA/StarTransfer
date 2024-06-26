@@ -1,5 +1,5 @@
 import unittest
-from Stars.api_rest.controllers.controller_handler import validar_caminho
+from Stars.api_rest.controllers.handler import validar_caminho
 
 
 class TestControllerHandler(unittest.TestCase):

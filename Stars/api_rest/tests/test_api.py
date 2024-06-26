@@ -1,7 +1,7 @@
 import unittest
 import json
 from Stars.api_rest.views.view_handler import app
-from Stars.api_rest.controllers.controller_handler import validar_caminho
+from Stars.api_rest.controllers.handler import validar_caminho
 
 
 class TestAPI(unittest.TestCase):
