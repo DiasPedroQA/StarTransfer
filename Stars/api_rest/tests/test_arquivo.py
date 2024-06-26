@@ -75,7 +75,7 @@ class TestArquivo(unittest.TestCase):
         """Teste inicialização da classe Arquivo."""
         self.assertEqual(self.arquivo_teste.nomeArquivo, self.propriedades_arquivo["nomeArquivo"])
         self.assertEqual(self.arquivo_teste.extensao, self.propriedades_arquivo["extensao"])
-        self.assertEqual(self.arquivo_teste.tamanho > 1, True)
+        self.assertEqual(len(self.arquivo_teste.tamanho) > 1, True)
         self.assertIsInstance(self.arquivo_teste.dataCriacao, datetime)
         self.assertEqual(self.arquivo_teste.localizacao, self.propriedades_arquivo["localizacao"])
 
