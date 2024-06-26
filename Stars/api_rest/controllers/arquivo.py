@@ -2,10 +2,16 @@
 # Stars/api_rest/controllers/arquivo.py
 
 import os
-from datetime import datetime
+import sys
 
 # Adicionar o diretório ao sys.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+sys.path.append(
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__), "../../"
+        )
+    )
+)
 
 
 class Arquivo:
@@ -36,4 +42,9 @@ class Arquivo:
         self._nomeArquivo = novo_nome
 
     def __str__(self):
-        return f"Arquivo: {self.nomeArquivo} \nFormato: {self.extensao} \nTamanho: {self.tamanho} bytes \nConteudo: {self.conteudo[:20]} \nCriado em: {self.dataCriacao} \nLocalizado em: {self.localizacao}"
+        return f"""Arquivo: {self.nomeArquivo} \n
+            Formato: {self.extensao} \n
+            Tamanho: {self.tamanho} bytes \n
+            Conteudo: {self.conteudo[:]} \n
+            Criado em: {self.dataCriacao} \n
+            Localizado em: {self.localizacao}"""
