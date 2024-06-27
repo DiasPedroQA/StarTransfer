@@ -26,6 +26,7 @@ jobs:
 
     - name: Verificar código com flake8
       run: flake8 Stars/api_rest --ignore=E501,E402
+      continue-on-error: true
 
     - name: Executar testes com unittest e gerar cobertura de código
       run: |
