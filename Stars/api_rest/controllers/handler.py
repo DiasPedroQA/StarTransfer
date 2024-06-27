@@ -5,12 +5,38 @@ import os
 from datetime import datetime
 from Stars.api_rest.controllers.arquivos import Arquivo
 from Stars.api_rest.controllers.pastas import Pasta
-from typing import List, Optional
+from typing import List
+from os import path
+
+
+def obter_propriedades_arquivo(caminho_arquivo):
+    try:
+        with open(caminho_arquivo, 'r') as file:
+            conteudo = file.read()
+
+        nome_arquivo = str(path.basename(caminho_arquivo))
+        pasta_projeto = str(path.dirname(caminho_arquivo))
+        caminho_absoluto = str(f'{pasta_projeto}/{nome_arquivo}')
+        propriedades = {
+            'nomeArquivo': nome_arquivo,
+            'extensao': str(path.splitext(caminho_arquivo)[1]),
+            'tamanho': str(path.getsize(caminho_arquivo)),
+            'conteudo': str(conteudo).replace('\n', ' '),
+            'dataCriacao': datetime.fromtimestamp(path.getctime(caminho_arquivo)),
+            'localizacao': caminho_absoluto
+        }
+
+        return propriedades
+    except FileNotFoundError:
+        return f'Arquivo ({caminho_arquivo}) não encontrado.'
+    except Exception as erro:
+        return f'Ocorreu um erro ao ler o arquivo: {str(erro)}'
+
 
 class ArquivoPastaHandler:
     def __init__(self) -> None:
-        self.arquivos: List[Arquivo] = [] # Lista de arquivos gerenciados
-        self.pastas: List[Pasta] = [] # Lista de pastas gerenciadas
+        self.arquivos: List[Arquivo] = []  # Lista de arquivos gerenciados
+        self.pastas: List[Pasta] = []  # Lista de pastas gerenciadas
 
     def criar_arquivo(self, nomeArquivo: str, extensao: str, tamanho: int, conteudo: str, dataCriacao: datetime, localizacao: str) -> Arquivo:
         # Cria e retorna uma instância de Arquivo
@@ -71,6 +97,7 @@ class ArquivoPastaHandler:
             'localizacao': caminho_absoluto
         }
         return propriedades
+
 
 # Exemplo de uso combinado para CRUD e leitura de arquivos .html
 if __name__ == "__main__":

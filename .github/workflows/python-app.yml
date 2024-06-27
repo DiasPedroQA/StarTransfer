@@ -24,8 +24,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r Stars/requirements.txt
 
-    - name: Verificar código com flake8
-      run: flake8 Stars/api_rest --ignore=E501,E402
+    - name: Verificar código com flake8 ( --ignore=E501 )
+      run: flake8 Stars --ignore=E501
       continue-on-error: true
 
     - name: Executar testes com unittest e gerar cobertura de código

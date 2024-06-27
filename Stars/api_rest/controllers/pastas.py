@@ -5,6 +5,7 @@ from typing import List, Optional
 from datetime import datetime
 from Stars.api_rest.controllers.arquivos import Arquivo
 
+
 class Pasta(Arquivo):
     def __init__(self, nomePasta: str, localizacao: str, arquivos: Optional[List[Arquivo]] = None, subpastas: Optional[List['Pasta']] = None) -> None:
         """
@@ -51,7 +52,6 @@ class Pasta(Arquivo):
     def exibir_pasta(self) -> str:
         """
         Exibe o conteúdo da pasta (arquivos e subpastas).
-        
         Retorna:
         - Uma string com o conteúdo da pasta formatado.
         """

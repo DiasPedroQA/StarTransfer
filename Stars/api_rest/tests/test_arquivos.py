@@ -1,21 +1,10 @@
 # Entidade testes em Arquivo
 # Stars/api_rest/tests/test_arquivo.py
 
+from Stars.api_rest.controllers.arquivos import Arquivo
 from datetime import datetime
 from os import path
-import sys
 import unittest
-
-# Adicionar o diretório ao sys.path
-sys.path.append(
-    path.abspath(
-        path.join(
-            path.dirname(__file__), '../../'
-        )
-    )
-)
-
-from Stars.api_rest.controllers.arquivo import Arquivo
 
 
 def obter_propriedades_arquivo(caminho_arquivo):

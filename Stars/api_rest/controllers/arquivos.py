@@ -1,79 +1,78 @@
 # Entidade Arquivos
 # Stars/api_rest/controllers/arquivos.py
 
+from typing import Optional
 from datetime import datetime
 
 class Arquivo:
-    def __init__(self, nomeArquivo: str, extensao: str, tamanho: int, conteudo: str, dataCriacao: datetime, localizacao: str) -> None:
-        self.__nomeArquivo: str = nomeArquivo  # Nome do arquivo
-        self.__extensao: str = extensao  # Extensão do arquivo
-        self.__tamanho: int = tamanho  # Tamanho do arquivo em bytes
-        self.__conteudo: str = conteudo  # Conteúdo do arquivo
-        self.__dataCriacao: datetime = dataCriacao  # Data de criação do arquivo
-        self.__localizacao: str = localizacao  # Caminho do arquivo no sistema
+    def __init__(self) -> None:
+        self.__nomeArquivo: Optional[str] = None
+        self.__extensao: Optional[str] = None
+        self.__tamanho: Optional[int] = None
+        self.__conteudo: Optional[str] = None
+        self.__dataCriacao: Optional[datetime] = None
+        self.__localizacao: Optional[str] = None
 
+    # Getters and setters
     @property
-    def nomeArquivo(self) -> str:
-        """Retorna o nome do arquivo."""
+    def nomeArquivo(self) -> Optional[str]:
         return self.__nomeArquivo
 
     @nomeArquivo.setter
     def nomeArquivo(self, nomeArquivo: str) -> None:
-        """Define o nome do arquivo."""
         self.__nomeArquivo = nomeArquivo
 
     @property
-    def extensao(self) -> str:
-        """Retorna a extensão do arquivo."""
+    def extensao(self) -> Optional[str]:
         return self.__extensao
 
     @extensao.setter
     def extensao(self, extensao: str) -> None:
-        """Define a extensão do arquivo."""
         self.__extensao = extensao
 
     @property
-    def tamanho(self) -> int:
-        """Retorna o tamanho do arquivo."""
+    def tamanho(self) -> Optional[int]:
         return self.__tamanho
 
     @tamanho.setter
     def tamanho(self, tamanho: int) -> None:
-        """Define o tamanho do arquivo."""
         self.__tamanho = tamanho
 
     @property
-    def conteudo(self) -> str:
-        """Retorna o conteúdo do arquivo."""
+    def conteudo(self) -> Optional[str]:
         return self.__conteudo
 
     @conteudo.setter
     def conteudo(self, conteudo: str) -> None:
-        """Define o conteúdo do arquivo."""
         self.__conteudo = conteudo
 
     @property
-    def dataCriacao(self) -> datetime:
-        """Retorna a data de criação do arquivo."""
+    def dataCriacao(self) -> Optional[datetime]:
         return self.__dataCriacao
 
     @dataCriacao.setter
     def dataCriacao(self, dataCriacao: datetime) -> None:
-        """Define a data de criação do arquivo."""
         self.__dataCriacao = dataCriacao
 
     @property
-    def localizacao(self) -> str:
-        """Retorna a localização do arquivo."""
+    def localizacao(self) -> Optional[str]:
         return self.__localizacao
 
     @localizacao.setter
     def localizacao(self, localizacao: str) -> None:
-        """Define a localização do arquivo."""
         self.__localizacao = localizacao
 
-    def exibir_arquivo(self) -> str:
-        """Retorna uma string com as informações do arquivo."""
+    def exibir_informacoes(self) -> str:
         return (f"Nome: {self.__nomeArquivo}, Extensão: {self.__extensao}, "
                 f"Tamanho: {self.__tamanho}, Data de Criação: {self.__dataCriacao}, "
                 f"Localização: {self.__localizacao}")
+
+# Example of usage
+arquivo = Arquivo()
+arquivo.nomeArquivo = "documento1.html"
+arquivo.extensao = ".html"
+arquivo.tamanho = 1024
+arquivo.conteudo = "Conteúdo do documento 1"
+arquivo.dataCriacao = datetime.now()
+arquivo.localizacao = "Stars/api_rest/exports/documento1.html"
+print(arquivo.exibir_informacoes())
