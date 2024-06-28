@@ -1,8 +1,11 @@
 # Entidade Arquivos
 # Stars/api_rest/controllers/arquivos.py
 
-from typing import Optional
 from datetime import datetime
+from typing import Optional
+from os import path
+import json
+
 
 class Arquivo:
     def __init__(self) -> None:
@@ -13,7 +16,7 @@ class Arquivo:
         self.__dataCriacao: Optional[datetime] = None
         self.__localizacao: Optional[str] = None
 
-    # Getters and setters
+    # Getters e setters
     @property
     def nomeArquivo(self) -> Optional[str]:
         return self.__nomeArquivo
@@ -62,17 +65,24 @@ class Arquivo:
     def localizacao(self, localizacao: str) -> None:
         self.__localizacao = localizacao
 
-    def exibir_informacoes(self) -> str:
-        return (f"Nome: {self.__nomeArquivo}, Extensão: {self.__extensao}, "
-                f"Tamanho: {self.__tamanho}, Data de Criação: {self.__dataCriacao}, "
-                f"Localização: {self.__localizacao}")
 
-# Example of usage
-arquivo = Arquivo()
-arquivo.nomeArquivo = "documento1.html"
-arquivo.extensao = ".html"
-arquivo.tamanho = 1024
-arquivo.conteudo = "Conteúdo do documento 1"
-arquivo.dataCriacao = datetime.now()
-arquivo.localizacao = "Stars/api_rest/exports/documento1.html"
-print(arquivo.exibir_informacoes())
+    def exibir_informacoes(self) -> str:
+        propriedades = {
+            "nomeArquivo": self.nomeArquivo,
+            "extensao": self.extensao,
+            "tamanho": self.tamanho,
+            "conteudo": self.conteudo,
+            "dataDeCriacao": self.dataCriacao,
+            "localizacao": "{local}/{nome}".format(local = self.localizacao, nome = self.nomeArquivo).replace("//", "/")
+        }
+
+        propriedades_invalidas = [nome for nome, valor in propriedades.items() if valor is None]
+
+        if propriedades_invalidas:
+            return json.dumps(
+                {
+                    "erro": f"Parametros ausentes: {', '.join(propriedades_invalidas)}"
+                }
+            )
+
+        return json.dumps(propriedades, default=str)
