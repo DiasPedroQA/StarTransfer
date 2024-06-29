@@ -134,3 +134,49 @@ return { 'nomeArquivo': caminho_arquivo, 'extensao': str(path.splitext(caminho_a
 
 
 
+"""
+# Classe Arquivo
+# A classe Arquivo possui métodos getter e setter para suas propriedades.
+
+from arquivos import Arquivo
+import os
+import unittest
+
+class TesteArquivo(unittest.TestCase):
+
+    def test_obter_arquivo_existente(self):
+        caminho_teste = 'dados/favoritos_teste.html'
+        arquivo = Arquivo(caminho_teste)
+        informacoes = arquivo.mostrar_arquivo()
+
+        self.assertEqual(arquivo.nome_arquivo, 'favoritos_teste.html')
+        self.assertEqual(arquivo.extensao, 'html')
+        self.assertEqual(arquivo.tamanho, 247)
+        self.assertIn('<!DOCTYPE html>', arquivo.conteudo)
+        self.assertEqual(arquivo.localizacao, os.path.abspath(caminho_teste))
+        self.assertIsInstance(arquivo.data_criacao, str)
+
+    def test_obter_arquivo_inexistente(self):
+        caminho_teste = '/caminho/para/novo_arquivo.txt'
+        try:
+            novo_arquivo = Arquivo()
+            novo_arquivo.localizacao = caminho_teste
+        except ValueError as e:
+            self.assertIn('O caminho especificado não é um arquivo válido:', str(e))
+
+    def test_criacao_arquivo(self):
+        caminho_novo_arquivo = 'dados/novo_arquivo.txt'
+        novo_arquivo = Arquivo()
+        novo_arquivo.localizacao = caminho_novo_arquivo
+
+        self.assertEqual(novo_arquivo.nome_arquivo, 'novo_arquivo.txt')
+        self.assertEqual(novo_arquivo.extensao, 'txt')
+        self.assertEqual(novo_arquivo.tamanho, 0)
+        self.assertEqual(novo_arquivo.conteudo, None)
+        self.assertEqual(novo_arquivo.localizacao, os.path.abspath(caminho_novo_arquivo))
+        self.assertIsInstance(novo_arquivo.data_criacao, str)
+
+if __name__ == '__main__':
+    unittest.main()
+
+"""
